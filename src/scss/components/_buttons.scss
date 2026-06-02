@@ -1,0 +1,18 @@
+// components/_buttons.scss
+@use 'base/variables' as vars;
+
+.btn {
+  display: inline-block;
+  padding: vars.$space-sm vars.$space-md;
+  background: vars.$color-primary;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  // 'transition' may gain prefixes for older targets — Autoprefixer handles it.
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

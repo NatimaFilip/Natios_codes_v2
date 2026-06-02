@@ -1,0 +1,35 @@
+name: Build & Deploy to Shoptet
+
+# Deploy on every push to main. The build regenerates the entry files in CI,
+# so the gitignored src/scss/main.scss & src/js/main.js never need to be committed.
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (generate entries + bundle CSS/JS)
+        run: npm run build
+
+      - name: Upload to all stores (SFTP)
+        run: node scripts/deploy.mjs
+        env:
+          # Multi-store: a single secret holding a JSON array of store objects.
+          # The deploy builds once and fans out to every store (see .env.example
+          # and docs/DEPLOYMENT.md for the exact shape). One bad store doesn't
+          # block the rest; the run fails at the end if any store failed.
+          STORES_JSON: ${{ secrets.STORES_JSON }}

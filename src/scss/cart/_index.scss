@@ -1,0 +1,12 @@
+// cart/_index.scss
+@use 'base/variables' as vars;
+
+.cart-summary {
+  padding: vars.$space-md;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+
+  &__total {
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,12 @@
+// blog/_index.scss
+// Example page folder. Add any new page folder (checkout, account, search, …)
+// and it is auto-discovered — no config edits ever.
+@use 'base/variables' as vars;
+
+.blog-post {
+  margin-bottom: vars.$space-lg;
+
+  &__title {
+    color: vars.$color-primary;
+  }
+}

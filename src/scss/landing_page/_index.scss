@@ -1,0 +1,11 @@
+// landing_page/_index.scss
+// snake_case folder name — handled fine. The generator's namespace scheme
+// (replacing '/' with '__') avoids any collision with the single underscore here.
+@use 'base/variables' as vars;
+
+.landing-hero {
+  padding: vars.$space-lg;
+  text-align: center;
+  background: linear-gradient(135deg, vars.$color-primary, #0b51b0);
+  color: #fff;
+}

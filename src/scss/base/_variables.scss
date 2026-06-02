@@ -1,0 +1,17 @@
+// base/_variables.scss
+// Shared design tokens. Any partial that needs these must `@use 'base/variables' as vars;`
+// itself and reference vars.$color-primary, etc. — see docs/ARCHITECTURE.md
+// ("Shared variables"). The generated main.scss controls emission ORDER only,
+// not cross-file member access.
+
+$color-primary: #1a73e8;
+$color-text: #1f2933;
+$color-bg: #ffffff;
+
+$font-base: 'Helvetica Neue', Arial, sans-serif;
+
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+
+$container-max: 1200px;

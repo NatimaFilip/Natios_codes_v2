@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+
+# Secrets — never commit
+.env
+
+# Local preview page (machine-specific Live Server URLs)
+dev.html
+
+# Logs
+*.log
+
+# AUTO-GENERATED entry files — gitignored so the team never hits merge
+# conflicts on machine-regenerated import lists. They are recreated by
+# `npm run generate` (and in CI by `npm run build`).
+src/scss/main.scss
+src/js/main.js

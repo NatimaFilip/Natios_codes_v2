@@ -1,0 +1,11 @@
+// components/_header.scss
+@use 'base/variables' as vars;
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$space-md vars.$space-lg;
+  background: vars.$color-primary;
+  color: #fff;
+}

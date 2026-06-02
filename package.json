@@ -1,0 +1,35 @@
+{
+  "name": "natios-shoptet-theme",
+  "version": "1.0.0",
+  "description": "Build-and-deploy pipeline for a Shoptet e-commerce theme. Auto-discovers SCSS partials and JS modules, bundles into one minified autoprefixed CSS and one minified JS, deploys via FTP with an API-driven cache-bust.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-entries.mjs",
+    "watch:entries": "node scripts/generate-entries.mjs --watch",
+    "css:compile": "sass --load-path=src/scss src/scss/main.scss dist/main.css --source-map",
+    "css:process": "postcss dist/main.css -o dist/main.min.css --map",
+    "build:css": "npm run css:compile && npm run css:process",
+    "build:js": "esbuild src/js/main.js --bundle --minify --sourcemap --outfile=dist/main.min.js",
+    "build": "npm run generate && npm run build:css && npm run build:js",
+    "dev:css:compile": "sass --load-path=src/scss src/scss/main.scss dist/main.css --watch --source-map",
+    "dev:css:process": "postcss dist/main.css -o dist/main.min.css --map --watch",
+    "dev:js": "esbuild src/js/main.js --bundle --sourcemap --watch --outfile=dist/main.min.js",
+    "dev": "npm run generate && npm-run-all --parallel watch:entries dev:css:compile dev:css:process dev:js",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "chokidar": "^3.6.0",
+    "cssnano": "^7.0.1",
+    "esbuild": "^0.21.5",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.77.0",
+    "ssh2-sftp-client": "^11.0.0"
+  }
+}

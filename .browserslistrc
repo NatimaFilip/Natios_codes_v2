@@ -1,0 +1,12 @@
+# Browserslist — drives which vendor prefixes Autoprefixer emits AND which
+# transforms cssnano applies. This is the SINGLE source of truth for browser
+# targeting across the whole CSS pipeline.
+#
+# Editing this file changes which vendor prefixes Autoprefixer adds.
+# No other change is needed anywhere — you never write -webkit-/-moz-/-ms- by hand.
+#
+# Tip: run `npx browserslist` to see exactly which browsers these queries resolve to.
+
+> 0.5%
+last 2 versions
+not dead

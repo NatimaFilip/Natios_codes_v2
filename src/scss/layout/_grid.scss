@@ -1,0 +1,15 @@
+// layout/_grid.scss
+@use 'base/variables' as vars;
+
+.container {
+  max-width: vars.$container-max;
+  margin: 0 auto;
+  padding: 0 vars.$space-md;
+}
+
+.row {
+  // Autoprefixer adds the necessary flex prefixes automatically — never write them by hand.
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-md;
+}

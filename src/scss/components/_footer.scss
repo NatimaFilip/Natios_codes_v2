@@ -1,0 +1,9 @@
+// components/_footer.scss
+@use 'base/variables' as vars;
+
+.site-footer {
+  padding: vars.$space-lg;
+  text-align: center;
+  color: vars.$color-text;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
